@@ -1,2 +1,2 @@
 # Recommendation-system
-It is a content based recommender system that uses tf-idf and cosine similarity for N Most SImilar Items from a dataset 
+It is a content based recommendation system that uses cosine similarity and tf-idf for N most similar items from a dataset. 

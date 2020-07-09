@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
-ds = pd.read_csv("posts.csv")
+ds = pd.read_csv("sample-data.csv")
 
 tf = TfidfVectorizer(analyzer='word', ngram_range=(1, 3), min_df=0, stop_words='english')
 tfidf_matrix = tf.fit_transform(ds['title'])
@@ -16,8 +16,6 @@ for idx, row in ds.iterrows():
     similar_items = [(cosine_similarities[idx][i], ds['_id'][i]) for i in similar_indices]
 
     results[row['_id']] = similar_items[1:]
-    
-print('done!')
 
 def item(id):
     return ds.loc[ds['_id'] == id]['title'].tolist()[0].split(' - ')[0]
